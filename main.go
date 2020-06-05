@@ -26,7 +26,7 @@ func main() {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
-    defer f.Close()
+	defer f.Close()
 
 	r := bufio.NewReader(f)
 
@@ -57,12 +57,12 @@ func main() {
 
 	results := make([]string, len(lines), len(lines))
 
-    for i := 0; i < len(lines); i++ {
+	for i := 0; i < len(lines); i++ {
 		r := <-c
 		results[r.order] = r.value
 	}
 
-	for _,s := range results {
+	for _, s := range results {
 		fmt.Println(s)
 	}
 }
